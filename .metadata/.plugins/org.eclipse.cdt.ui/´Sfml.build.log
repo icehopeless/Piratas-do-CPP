@@ -1,0 +1,8 @@
+08:24:17 **** Incremental Build of configuration Debug for project ´Sfml ****
+Info: Internal Builder is used for build
+g++ "-LF:\\Batlha\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\lib" -o ´Sfml.exe Game.o Main.o Menu.o -lsfml-graphics -lsfml-audio -lwinmm -lsfml-window -lsfml-system 
+Game.o: file not recognized: File format not recognized
+collect2.exe: error: ld returned 1 exit status
+
+08:24:18 Build Finished. 0 errors, 0 warnings. (took 397ms)
+

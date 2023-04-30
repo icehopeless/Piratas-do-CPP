@@ -1,0 +1,9 @@
+21:37:17 **** Incremental Build of configuration Debug for project Batalah_Naval_Version_Finale ****
+Info: Internal Builder is used for build
+g++ "-IF:\\Batlha\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include" -I../SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include "-IC:\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o Game.o "..\\Game.cpp" 
+g++ "-IF:\\Batlha\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include" -I../SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include "-IC:\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o "..\\Main.cpp" 
+g++ "-IF:\\Batlha\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include" -I../SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/include "-IC:\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include" -O0 -g3 -Wall -c -fmessage-length=0 -o Menu.o "..\\Menu.cpp" 
+g++ "-LF:\\Batlha\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\lib" -L../SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit/SFML-2.5.1/lib "-LC:\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\lib" -o Batalah_Naval_Version_Finale.exe Game.o Main.o Menu.o -lsfml-graphics -lsfml-audio -lwinmm -lsfml-window -lsfml-system 
+
+21:37:20 Build Finished. 0 errors, 0 warnings. (took 3s.589ms)
+

@@ -1,0 +1,124 @@
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
+sf::RectangleShape criaRetangulo(int x, int y, int width, int height) {
+	sf::RectangleShape rectangle(sf::Vector2f(width, height));
+	rectangle.setFillColor(sf::Color::Blue);
+	rectangle.setOutlineColor(sf::Color::Red);
+	rectangle.setOutlineThickness(1.0f);
+	rectangle.setPosition(x, y);
+	return rectangle;
+}
+
+enum Celulas {
+	AGUA, ESTRELA
+};
+
+void trataEventos(sf::RenderWindow *window, Celulas matriz[10][10],
+		sf::Sound *starSound, int dim) {
+	sf::Event event;
+	while ((*window).pollEvent(event)) {
+		if (event.type == sf::Event::Closed) {
+			(*window).close();
+		}
+		if (event.type == sf::Event::MouseButtonPressed) {
+			(*starSound).play();
+		}
+	}
+}
+
+void desenhaRetangulos(sf::RenderWindow &window,Celulas matriz[10][10],
+		sf::RectangleShape boxes[10][10], float x, float y) {
+	sf::Event event;
+	sf::Color cor;
+	for (int i = 0; i < 10; i++) {
+		for (int c = 0; c < 10; c++) {
+			if (boxes[i][c].getGlobalBounds().contains(x, y)) {
+				cor = sf::Color::Red;
+				int linha = sf::Mouse::getPosition(*window).x / dim;
+				int coluna = sf::Mouse::getPosition(*window).y / dim;
+				matriz[linha][coluna] = ESTRELA;
+			} else {
+				cor = sf::Color::Blue;
+			}
+			boxes[i][c].setFillColor(cor);
+			window.draw(boxes[i][c]);
+		}
+	}
+}
+
+void desenhaEstrelas(sf::RenderWindow &window, Celulas matriz[10][10], int dim,
+		sf::Sprite starImage) {
+	float x, y;
+	for (int i = 0; i < 10; i++) {
+		for (int c = 0; c < 10; c++) {
+			if (matriz[i][c] == ESTRELA) {
+				x = i * dim;
+				y = c * dim;
+				starImage.setPosition(x, y);
+				window.draw(starImage);
+			}
+		}
+	}
+}
+
+int main() {
+	/**********************Inicializa Objetos do Jogo**********************/
+
+	int dim = 50;
+	sf::RenderWindow window(sf::VideoMode(960, 540),
+			"ONE PIECE: Bztalha Naval!!!",
+			sf::Style::Close | sf::Style::Titlebar);
+
+	window.setFramerateLimit(60);
+	window.setVerticalSyncEnabled(true);
+
+	sf::RectangleShape boxes[10][10];
+	Celulas matriz[10][10];
+	for (int i = 0; i < 10; i++) {
+		for (int c = 0; c < 10; c++) {
+			boxes[i][c] = criaRetangulo(i * dim, c * dim, dim, dim);
+			matriz[i][c] = AGUA;
+		}
+	}
+
+	sf::Texture textureFundo;
+	sf::Sprite fundoImage;
+
+	sf::Texture textureStarImage;
+	sf::Sprite starImage;
+
+	textureFundo.loadFromFile("assets/fundo.png");
+	textureStarImage.loadFromFile("assets/boom.png");
+	textureStarImage.setSmooth(true);
+
+	fundoImage.setTexture(textureFundo);
+	starImage.setTextureRect(sf::IntRect(0, 0, 50, 50));
+	starImage.setTexture(textureStarImage, true);
+
+	float escala = (float) dim / textureStarImage.getSize().x;
+	starImage.setScale(escala, escala);
+	sf::SoundBuffer starBuffer;
+	sf::Sound starSound;
+	starBuffer.loadFromFile("assets/star.wav");
+	starSound.setBuffer(starBuffer);
+
+	while (window.isOpen()) {
+
+		window.clear();
+
+		window.draw(fundoImage);
+		trataEventos(&window, matriz, &starSound, dim);
+		float x = sf::Mouse::getPosition(window).x;
+		float y = sf::Mouse::getPosition(window).y;
+		desenhaRetangulos(window,matriz, boxes, x, y);
+		desenhaEstrelas(window, matriz, dim, starImage);
+
+		window.display();
+
+
+		sf::sleep(sf::milliseconds(50.0f));
+	}
+	return 0;
+}
+

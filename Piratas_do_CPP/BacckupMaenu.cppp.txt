@@ -1,0 +1,683 @@
+#include "menu.hpp"
+
+Menu::Menu(){
+
+	font = new sf::Font();
+
+	music = new sf::Music();
+
+	set_valores();
+}
+
+Menu::~Menu(){
+	delete music;
+	delete font;
+
+}
+
+void Menu::set_valores(){
+
+	Janela.create(sf::VideoMode(1280,720), "Menu Batalha", sf::Style::Titlebar | sf::Style::Close);
+	Janela.setPosition(sf::Vector2i(0,0));
+	pos = 0;
+
+	vel = 5;
+
+	sf::Image Icon = sf::Image { };
+
+	Icon.loadFromFile("../Midia/Ico.png");
+	Janela.setIcon(Icon.getSize().x, Icon.getSize().y, Icon.getPixelsPtr());
+
+	Teclaprecionada1 = SelecionadoEnter = false;
+
+	font->loadFromFile("../Midia/BattlesbridgeDemo-AL126.ttf");
+	image.loadFromFile("../Midia/part2.png");
+
+	bg.setTexture(image);
+
+	pos_mouse = {0,0};
+	mouse_coord = {0, 0};
+
+	VolumeImage.loadFromFile("../Midia/Ciricle.png");
+	VolumeBg.setScale(0.5, 0.5);
+	VolumeBg.setPosition(0, 300);
+
+	music->openFromFile("../Midia/Pirates of the Caribbean The Curse of the Black Pear.ogg");
+	music->setVolume(10);
+
+	text1.setFont(*font);
+	text1.setString("Play");
+	text1.setPosition(560, 498);
+	text1.setFillColor(sf::Color::Magenta);
+	text1.setCharacterSize(25);
+
+	text2.setString("Play");
+	text2.setPosition(556, 498);
+	text2.setFillColor(sf::Color::Cyan);
+	text2.setCharacterSize(25);
+	text2.setFont(*font);
+
+
+	text3.setFont(*font);
+	text3.setString("Setting");
+	text3.setPosition(550, 585);
+	text3.setFillColor(sf::Color::Magenta);
+	text3.setCharacterSize(25);
+	text3.setFont(*font);
+
+	text4.setFont(*font);
+	text4.setString("Setting");
+	text4.setPosition(553, 585);
+	text4.setFillColor(sf::Color::Cyan);
+	text4.setCharacterSize(25);
+	text4.setFont(*font);
+
+	text5.setFillColor(sf::Color::Magenta);
+	text6.setFillColor(sf::Color::Cyan);
+
+	textTitulo.setFont(*font);
+	textTitulo.setString("Piratas do Cpp");
+	textTitulo.setPosition(327, 386);
+	textTitulo.setFillColor(sf::Color::Magenta);
+	textTitulo.setCharacterSize(50);
+
+	SubtextTitulo.setFont(*font);
+	SubtextTitulo.setString("Piratas do Cpp");
+	SubtextTitulo.setPosition(331, 386);
+	SubtextTitulo.setFillColor(sf::Color::Cyan);
+	SubtextTitulo.setCharacterSize(50);
+
+
+	SelctMouse.setSize(sf::Vector2f(206,52));
+	SelctMouse.setPosition(510, 585);
+
+	SelctMouse2.setSize(sf::Vector2f(206,52));
+	SelctMouse2.setPosition(556, 498);
+
+
+
+}
+void Menu::Atualiza(){
+	if(image.loadFromFile("../Midia/part1.png")){
+			Lobby();
+		}
+
+}
+
+void Menu::loop_events(){
+
+	sf::Event event;
+
+	pos_mouse = sf::Mouse::getPosition(Janela);
+	mouse_coord = Janela.mapPixelToCoords(pos_mouse);
+
+	while(Janela.pollEvent(event)){
+		if(event.type == sf::Event::Closed){
+			Janela.close();
+		}
+
+		Configs();
+
+	}
+}
+
+void Menu::Lobby(){
+
+ if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !Teclaprecionada1){
+
+				if(pos < 2){
+					++pos;
+					Teclaprecionada1 = true;
+					if(pos == 1){
+						text4.setFillColor(sf::Color::Cyan);
+						text2.setFillColor(sf::Color::Magenta);
+					}
+					if(pos == 2){
+						text2.setFillColor(sf::Color::Cyan);
+						text4.setFillColor(sf::Color::Magenta);
+					}
+					Teclaprecionada1 = false;
+					SelecionadoEnter = false;
+				}
+			}
+
+
+ if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !Teclaprecionada1){
+				if(pos > 1){
+				    --pos;
+				    Teclaprecionada1 = true;
+				    if(pos == 1){
+				        text4.setFillColor(sf::Color::Cyan);
+				        text2.setFillColor(sf::Color::Magenta);
+				     }
+				     if(pos == 2){
+				         text2.setFillColor(sf::Color::Cyan);
+				         text4.setFillColor(sf::Color::Magenta);
+				     }
+				     Teclaprecionada1 = false;
+				     SelecionadoEnter = false;
+				 }
+		}
+
+
+ if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !SelecionadoEnter){
+					SelecionadoEnter = true;
+						if(pos == 1){
+							image.loadFromFile("../Midia/part3.png");
+						}
+							else if(pos == 2){
+								image.loadFromFile("../Midia/part2.png");
+
+						}
+
+						}
+
+
+			if(SelctMouse2.getGlobalBounds().contains(mouse_coord)){
+				text2.setFillColor(sf::Color::Magenta);
+				text4.setFillColor(sf::Color::Cyan);
+				pos = 1;
+
+			}
+			else if(!SelctMouse2.getGlobalBounds().contains(mouse_coord) && pos == 0){
+				text2.setFillColor(sf::Color::Cyan);
+
+			}
+
+			if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+
+				if(SelctMouse2.getGlobalBounds().contains(mouse_coord)){
+
+					image.loadFromFile("../Midia/part3.png");
+
+				}
+			}
+
+
+			if(SelctMouse.getGlobalBounds().contains(mouse_coord)){
+				text2.setFillColor(sf::Color::Cyan);
+				text4.setFillColor(sf::Color::Magenta);
+				pos = 2;
+
+			}
+			else if(!SelctMouse.getGlobalBounds().contains(mouse_coord) && pos == 0){
+				text4.setFillColor(sf::Color::Cyan);
+
+			}
+
+			if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+				if(SelctMouse.getGlobalBounds().contains(mouse_coord)){
+
+					image.loadFromFile("../Midia/part2.png");
+					Configs();
+				}
+			}
+
+
+}
+
+void Menu::Configs(){
+
+
+	VolumeBg.setTexture(VolumeImage);
+
+	SelctMouse.setSize(sf::Vector2f(206,52));
+	SelctMouse.setPosition(98, 636);
+
+	SelctMouse2.setSize(sf::Vector2f(206,52));
+	SelctMouse2.setPosition(1030, 636);
+
+	SelectConfig.setSize(sf::Vector2f(206,52));
+	SelectConfig.setPosition(551, 636);
+
+	Coordenadas_ButtonVolume.setPosition(130,360) ;
+	Coordenadas_ButtonVolume.setSize(sf::Vector2f(1280,100));
+
+		textTitulo.setFont(*font);
+		textTitulo.setString("Levels");
+		textTitulo.setPosition(547, 636);
+		textTitulo.setCharacterSize(25);
+
+		SubtextTitulo.setFont(*font);
+		SubtextTitulo.setString("Levels");
+		SubtextTitulo.setPosition(551, 636);
+		SubtextTitulo.setCharacterSize(25);
+
+
+		text1.setString("Play");
+		text1.setPosition(1030, 636);
+
+		text1.setCharacterSize(25);
+
+		text2.setString("Play");
+		text2.setPosition(1026, 636);
+
+		text2.setCharacterSize(25);
+		text2.setFont(*font);
+
+
+
+		text3.setString("Home");
+		text3.setPosition(95, 636);
+
+		text3.setCharacterSize(25);
+		text3.setFont(*font);
+
+
+		text4.setString("Home");
+		text4.setPosition(98, 636);
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !Teclaprecionada1){
+			VolumeBg.setPosition(VolumeBg.getPosition().x +  vel,300) ;
+								volu = VolumeBg.getPosition().x;
+								music->setVolume(volu + 10);
+
+								if(VolumeBg.getPosition().x >= 1080){
+									VolumeBg.setPosition(1080, 300);
+								}
+				}
+
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !Teclaprecionada1){
+					VolumeBg.setPosition(VolumeBg.getPosition().x - vel,300) ;
+										volu = VolumeBg.getPosition().x;
+										music->setVolume(volu + 10);
+
+										if(VolumeBg.getPosition().x <= -100){
+											VolumeBg.setPosition(-100, 300);
+										}
+						}
+
+
+
+
+		 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !Teclaprecionada1){
+
+						if(pos < 3){
+							++pos;
+							Teclaprecionada1 = true;
+
+							if(pos == 1){
+								text2.setFillColor(sf::Color::Cyan);
+								text4.setFillColor(sf::Color::Magenta);
+								SubtextTitulo.setFillColor(sf::Color::Cyan);
+							}
+							if(pos == 2){
+								text2.setFillColor(sf::Color::Cyan);
+								text4.setFillColor(sf::Color::Cyan);
+								SubtextTitulo.setFillColor(sf::Color::Magenta);
+							}
+							if(pos == 3){
+								text4.setFillColor(sf::Color::Cyan);
+								text2.setFillColor(sf::Color::Magenta);
+								SubtextTitulo.setFillColor(sf::Color::Cyan);
+							}
+
+							Teclaprecionada1 = false;
+							SelecionadoEnter = false;
+						}
+					}
+
+
+		 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !Teclaprecionada1){
+						if(pos > 1){
+						    --pos;
+						    Teclaprecionada1 = true;
+						     if(pos == 1){
+						         text2.setFillColor(sf::Color::Cyan);
+						         text4.setFillColor(sf::Color::Magenta);
+						         SubtextTitulo.setFillColor(sf::Color::Cyan);
+						     }
+						     if(pos == 2){
+						    	 text2.setFillColor(sf::Color::Cyan);
+						    	 text4.setFillColor(sf::Color::Cyan);
+						     	SubtextTitulo.setFillColor(sf::Color::Magenta);
+						     }
+						     if(pos == 3){
+						     	text4.setFillColor(sf::Color::Cyan);
+						     	text2.setFillColor(sf::Color::Magenta);
+						     	SubtextTitulo.setFillColor(sf::Color::Cyan);
+						     }
+						     Teclaprecionada1 = false;
+						     SelecionadoEnter = false;
+						 }
+				}
+		 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !SelecionadoEnter){
+		 		SelecionadoEnter = true;
+		 			if(pos == 1){
+		 				image.loadFromFile("../Midia/part1.png");
+		 			}
+		 			else if(pos == 2){
+		 				image.loadFromFile("../Midia/part5.png");
+		 			}
+		 			else if(pos == 3){
+		 				image.loadFromFile("../Midia/part3.png");
+		 			}
+
+		}
+
+
+
+		if(SelctMouse.getGlobalBounds().contains(mouse_coord)){
+						text2.setFillColor(sf::Color::Cyan);
+						text4.setFillColor(sf::Color::Magenta);
+						SubtextTitulo.setFillColor(sf::Color::Cyan);
+						pos = 1;
+
+					}
+					else if(!SelctMouse.getGlobalBounds().contains(mouse_coord) && pos == 0){
+						text4.setFillColor(sf::Color::Cyan);
+
+					}
+
+					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+						if(SelctMouse.getGlobalBounds().contains(mouse_coord)){
+
+							image.loadFromFile("../Midia/part1.png");
+
+						}
+					}
+
+
+		if(SelctMouse2.getGlobalBounds().contains(mouse_coord)){
+							text4.setFillColor(sf::Color::Cyan);
+							text2.setFillColor(sf::Color::Magenta);
+							SubtextTitulo.setFillColor(sf::Color::Cyan);
+							pos = 3;
+					}
+					else if(!SelctMouse2.getGlobalBounds().contains(mouse_coord) && pos == 0){
+							text2.setFillColor(sf::Color::Cyan);
+
+					}
+
+					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+							if(SelctMouse2.getGlobalBounds().contains(mouse_coord)){
+									image.loadFromFile("../Midia/part3.png");
+							}
+					}
+
+		if(SelectConfig.getGlobalBounds().contains(mouse_coord)){
+							text4.setFillColor(sf::Color::Cyan);
+							text2.setFillColor(sf::Color::Cyan);
+							SubtextTitulo.setFillColor(sf::Color::Magenta);
+							pos = 2;
+					}
+					else if(!SelectConfig.getGlobalBounds().contains(mouse_coord) && pos == 0){
+						SubtextTitulo.setFillColor(sf::Color::Cyan);
+
+
+					}
+
+					if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+							if(SelectConfig.getGlobalBounds().contains(mouse_coord)){
+									image.loadFromFile("../Midia/part5.png");
+								}
+							}
+
+}
+
+void Menu::Levels(){
+
+		SelctMouse.setSize(sf::Vector2f(206,52));
+		SelctMouse.setPosition(575, 176);
+
+		SelctMouse2.setSize(sf::Vector2f(206,52));
+		SelctMouse2.setPosition(557, 346);
+
+		SelectConfig.setSize(sf::Vector2f(206,52));
+		SelectConfig.setPosition(571, 546);
+
+		SelectPlayLevels.setSize(sf::Vector2f(206,52));
+		SelectPlayLevels.setPosition(1070, 636);
+
+			text1.setString("Play");
+			text1.setPosition(1070, 636);
+
+			text1.setCharacterSize(25);
+
+			text2.setString("Play");
+			text2.setPosition(1066, 636);
+
+			text2.setCharacterSize(25);
+			text2.setFont(*font);
+
+
+
+			text3.setString("Easy");
+			text3.setPosition(575, 176);
+
+			text3.setCharacterSize(25);
+			text3.setFont(*font);
+
+
+			text4.setString("Easy");
+			text4.setPosition(578, 176);
+
+
+			textTitulo.setFont(*font);
+			textTitulo.setString("Meddium");
+			textTitulo.setPosition(557, 346);
+			textTitulo.setCharacterSize(25);
+
+			SubtextTitulo.setFont(*font);
+			SubtextTitulo.setString("Meddium");
+			SubtextTitulo.setPosition(561, 346);
+			SubtextTitulo.setCharacterSize(25);
+
+			text5.setFont(*font);
+			text5.setString("Hard");
+			text5.setPosition(568, 546);
+			text5.setCharacterSize(25);
+
+
+
+			text6.setFont(*font);
+			text6.setString("Hard");
+			text6.setPosition(571, 546);
+			text6.setCharacterSize(25);
+
+
+
+
+			 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !Teclaprecionada1){
+
+									if(pos < 4){
+										++pos;
+										Teclaprecionada1 = true;
+
+										if(pos == 1){
+											text2.setFillColor(sf::Color::Cyan);
+											text6.setFillColor(sf::Color::Cyan);
+											SubtextTitulo.setFillColor(sf::Color::Cyan);
+											text4.setFillColor(sf::Color::Magenta);
+										}
+										if(pos == 2){
+											text2.setFillColor(sf::Color::Cyan);
+											text6.setFillColor(sf::Color::Cyan);
+											SubtextTitulo.setFillColor(sf::Color::Magenta);
+											text4.setFillColor(sf::Color::Cyan);
+										}
+										if(pos == 3){
+											text4.setFillColor(sf::Color::Cyan);
+											text2.setFillColor(sf::Color::Cyan);
+											SubtextTitulo.setFillColor(sf::Color::Cyan);
+											text6.setFillColor(sf::Color::Magenta);
+										}
+										if(pos == 4){
+											text6.setFillColor(sf::Color::Cyan);
+											text4.setFillColor(sf::Color::Cyan);
+											SubtextTitulo.setFillColor(sf::Color::Cyan);
+											text2.setFillColor(sf::Color::Magenta);
+										}
+
+										Teclaprecionada1 = false;
+										SelecionadoEnter = false;
+									}
+								}
+
+
+					 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !Teclaprecionada1){
+									if(pos > 1){
+									    --pos;
+									    Teclaprecionada1 = true;
+									    if(pos == 1){
+									    	text2.setFillColor(sf::Color::Cyan);
+									    	text6.setFillColor(sf::Color::Cyan);
+									    	SubtextTitulo.setFillColor(sf::Color::Cyan);
+									    	text4.setFillColor(sf::Color::Magenta);
+									    }
+
+									    if(pos == 2){
+									    	text2.setFillColor(sf::Color::Cyan);
+									    	text6.setFillColor(sf::Color::Cyan);
+									    	SubtextTitulo.setFillColor(sf::Color::Magenta);
+									    	text4.setFillColor(sf::Color::Cyan);
+									    }
+									   if(pos == 3){
+									    	text4.setFillColor(sf::Color::Cyan);
+									    	text2.setFillColor(sf::Color::Cyan);
+									    	SubtextTitulo.setFillColor(sf::Color::Cyan);
+									    	text6.setFillColor(sf::Color::Magenta);
+									   	}
+									   if(pos == 4){
+									    	text6.setFillColor(sf::Color::Cyan);
+									    	text4.setFillColor(sf::Color::Cyan);
+									    	SubtextTitulo.setFillColor(sf::Color::Cyan);
+									    	text2.setFillColor(sf::Color::Magenta);
+									   }
+
+									     Teclaprecionada1 = false;
+									     SelecionadoEnter = false;
+									 }
+							}
+					 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return) && !SelecionadoEnter){
+					 		SelecionadoEnter = true;
+					 			if(pos == 1){
+					 				image.loadFromFile("../Midia/part1.png");
+					 			}
+					 			else if(pos == 2){
+					 				image.loadFromFile("../Midia/part5.png");
+					 			}
+					 			else if(pos == 3){
+					 				image.loadFromFile("../Midia/part3.png");
+					 			}
+					 			else if(pos == 4){
+					 				image.loadFromFile("../Midia/part4.png");
+					 			}
+
+					}
+
+
+
+
+			if(SelctMouse.getGlobalBounds().contains(mouse_coord)){
+									text2.setFillColor(sf::Color::Cyan);
+									text4.setFillColor(sf::Color::Magenta);
+									SubtextTitulo.setFillColor(sf::Color::Cyan);
+									text2.setFillColor(sf::Color::Cyan);
+									pos =1;
+
+								}
+								else if(!SelctMouse.getGlobalBounds().contains(mouse_coord) && pos == 0){
+									text4.setFillColor(sf::Color::Cyan);
+
+								}
+
+								if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+									if(SelctMouse.getGlobalBounds().contains(mouse_coord)){
+
+										Configs();
+
+									}
+								}
+
+
+					if(SelctMouse2.getGlobalBounds().contains(mouse_coord)){
+										text4.setFillColor(sf::Color::Cyan);
+										SubtextTitulo.setFillColor(sf::Color::Magenta);
+										text6.setFillColor(sf::Color::Cyan);
+										text2.setFillColor(sf::Color::Cyan);
+										pos = 2;
+								}
+								else if(!SelctMouse2.getGlobalBounds().contains(mouse_coord) && pos == 0){
+										SubtextTitulo.setFillColor(sf::Color::Cyan);
+
+								}
+
+								if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+										if(SelctMouse2.getGlobalBounds().contains(mouse_coord)){
+
+										}
+								}
+
+
+
+
+
+
+					if(SelectConfig.getGlobalBounds().contains(mouse_coord)){
+										text4.setFillColor(sf::Color::Cyan);
+										SubtextTitulo.setFillColor(sf::Color::Cyan);
+										text6.setFillColor(sf::Color::Magenta);
+										text2.setFillColor(sf::Color::Cyan);
+										pos =3;
+								}
+								else if(!SelectConfig.getGlobalBounds().contains(mouse_coord) && pos == 0){
+									text6.setFillColor(sf::Color::Cyan);
+
+
+								}
+
+								if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+										if(SelectConfig.getGlobalBounds().contains(mouse_coord)){
+
+									}
+							}
+
+
+					if(SelectPlayLevels.getGlobalBounds().contains(mouse_coord)){
+										text4.setFillColor(sf::Color::Cyan);
+										SubtextTitulo.setFillColor(sf::Color::Cyan);
+										text6.setFillColor(sf::Color::Cyan);
+										text2.setFillColor(sf::Color::Magenta);
+										pos =4 ;
+
+								}
+								else if(!SelectPlayLevels.getGlobalBounds().contains(mouse_coord) && pos == 0){
+										text2.setFillColor(sf::Color::Cyan);
+
+
+										}
+
+								if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
+										if(SelectPlayLevels.getGlobalBounds().contains(mouse_coord)){
+
+									}
+								}
+}
+
+
+void Menu::desenhar(){
+	Janela.clear();
+	Janela.draw(bg);
+	Janela.draw(text1);
+	Janela.draw(text2);
+	Janela.draw(text3);
+	Janela.draw(text4);
+	Janela.draw(text5);
+	Janela.draw(text6);
+	Janela.draw(textTitulo);
+	Janela.draw(SubtextTitulo);
+	Janela.draw(VolumeBg);
+	Janela.display();
+
+
+
+}
+
+void Menu::run_menu(){
+	music->play();
+	while(Janela.isOpen()){
+		loop_events();
+		desenhar();
+	}
+}
