@@ -46,7 +46,7 @@ Diante do exposto, foi ultilizado a biblioteca SFML para a construção do jogo,
 
 2. adicione nas variaveis do sistema o PATH do compilador mingw, o caminho por padrão é: \mingw64\bin
 
-3. O jogo foi desenvolvido no <a href="www.eclipse.org/">Eclipse IDE</a>, recomendamos utilizá-lo para compilar e rodar seu código, caso utilize outra IDE, certifique-se que a Biblioteca SFML esteja incluida da maneira correta.
+3. O jogo foi desenvolvido no <a href="https://www.eclipse.org/">Eclipse IDE</a>, recomendamos utilizá-lo para compilar e rodar seu código, caso utilize outra IDE, certifique-se que a Biblioteca SFML esteja incluida da maneira correta.
 
 
 utilize o codigo abaixo como exemplo para compilar na usando a linha de comando, nao esqueça de indicar o diretório da biblioteca
