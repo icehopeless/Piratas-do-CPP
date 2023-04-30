@@ -14,6 +14,8 @@ Batalha Naval Desenvolvido na linguagem C
 O presente projeto "Piratas do CPP" consiste num jogo simplificado de batalha naval, onde é criado uma grade/matriz de tamanho 10x10 que é denominado como o cenário do jogo. 
 Na grade é colocado barcos invisíveis ao jogador. Seu intuito é enduzir o usuário a achar todos os barcos gerados através do clique, buscando racionalizar as bombas presentes em cada nível de dificuldade para alcançar o objetivo.
 
+obs: o jogo é recomendado a ser compilado e jogado através do ECLIPSE IDE
+
 
 ## Principal Tecnologia Destacada ⛵
 -  [SFML lib](https://www.sfml-dev.org/index.php) 
