@@ -1,6 +1,7 @@
 # Piratas do CPP 
 
 ![background](./readme_assets/background.jpg)
+
 Batalha Naval Desenvolvido na linguagem C
 
 ## Indice 
@@ -22,20 +23,20 @@ Na grade é colocado barcos invisíveis ao jogador. Seu intuito é enduzir o usu
 A presente biblioteca "Simple and Fast Multimedia Library (SFML)" foi responsável por introduiz a parte gráfica no desenvolvimento do jogo, possibilitando assim, a interação visual do usuário, dispensando o uso do terminal.
 
 ## Desmonstração ⛵
-![menu](./1.jpg)
+![menu](./readme_assets/1.jpg)
 O menu principal do jogo contem duas opções, de configurações e de play, para ir diretamente pro jogo com as definições padrões.
 
 
-![config](./config.jpg)
+![config](./readme_assets/config.jpg)
 A tela de configurações permite ao usuário o controle e ajuste do som do jogo, uma alternativa de volta para o menu, acesso aos leveis do jogo e o play.
 
-![levels](./mode.jpg)
+![levels](./readme_assets/mode.jpg)
 Os leveis são responsáveis para definir a forma como o usuário quer jogar, sendo fácil = infinitas bombas, medium = 50 e por fim, hard = 35 bombas.
 
-![game](./game.jpg)
+![game](./readme_assets/game.jpg)
 A tela game representa a matriz, denominada com cenário do jogo. Ao lado há a contabilidade de bombas e barcos destruídos
 
-![final](./finalscreen.jpg)
+![final](./readme_assets/finalscreen.jpg)
 A tela final permite ao usúario jogar novamente, ou sair do jogo, isto é, fechar a tela.
 
 
