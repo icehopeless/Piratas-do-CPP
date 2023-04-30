@@ -51,8 +51,7 @@ Diante do exposto, foi ultilizado a biblioteca SFML para a construção do jogo,
 
 4. Abra a pasta gerada após o download do projeto como workspace, acesse a pasta "Piratas_do_CPP" onde se encontra os arquivos .cpp e .hpp e compile o "game.cpp".
 
-
-utilize o codigo abaixo como exemplo para compilar usando a linha de comando, nao esqueça de indicar o diretório da biblioteca
+Segue o codigo abaixo como exemplo para compilar usando a linha de comando, nao esqueça de indicar o diretório da biblioteca
 
 ```c++
 g++ -Wall src/main.cpp -I include -o bin/app -L lib/SFML-7.3.0 -lsfml-system -lsfml-window -lsfml-graphics
