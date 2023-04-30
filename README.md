@@ -47,9 +47,9 @@ Diante do exposto, foi ultilizado a biblioteca SFML para a construção do jogo,
 
 2. adicione nas variaveis do sistema o PATH do compilador mingw, o caminho por padrão é: \mingw64\bin
 
-3. O jogo foi desenvolvido no <a href="https://www.eclipse.org/">Eclipse IDE</a>, recomendamos utilizá-lo para compilar e rodar seu código, caso utilize outra IDE, certifique-se que a Biblioteca SFML esteja incluida da maneira correta.
+3. O jogo foi desenvolvido no <a href="https://www.eclipse.org/">Eclipse IDE</a>, logo, a pasta raiz do jogo é um workspace de formato referido no Eclipse. Recomendamos utilizá-lo para compilar e rodar o código. Caso utilize outra IDE, certifique-se que a Biblioteca SFML esteja incluida da maneira correta, caso contrário, o código não será compilado.
 
-4. Abra a pasta gerada após o download do projeto como workspace, acesse a pasta "Piratas_do_CPP" onde se encontra os arquivos .cpp e .hpp e compile o "game.cpp".
+4. Abra a pasta gerada após o download do projeto na sua IDE, acesse a pasta "Piratas_do_CPP" onde se encontra os arquivos .cpp e .hpp e compile o "game.cpp".
 
 Segue o codigo abaixo como exemplo para compilar usando a linha de comando, nao esqueça de indicar o diretório da biblioteca
 
@@ -57,11 +57,11 @@ Segue o codigo abaixo como exemplo para compilar usando a linha de comando, nao 
 g++ -Wall src/main.cpp -I include -o bin/app -L lib/SFML-7.3.0 -lsfml-system -lsfml-window -lsfml-graphics
 ```
 
-4. Ao compilar, será gerado um executável com o nome "Piratas_do_CPP.exe" na pasta Debug. Execute o para rodar o jogo.
+5. Ao compilar, será gerado um executável com o nome "Piratas_do_CPP.exe" na pasta Debug. Execute o para rodar o jogo.
 
 
 ## Autores⛵
-Desenvolvido visando a didática, responsável pela instituição CEFET-MG, 12/04/2023
+Desenvolvido visando a didática, responsável pela instituição CEFET-MG - 12/04/2023
 
 ### Alunos Presentes: 
 
