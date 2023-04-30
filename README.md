@@ -49,7 +49,7 @@ Diante do exposto, foi ultilizado a biblioteca SFML para a construção do jogo,
 
 3. O jogo foi desenvolvido no <a href="https://www.eclipse.org/">Eclipse IDE</a>, recomendamos utilizá-lo para compilar e rodar seu código, caso utilize outra IDE, certifique-se que a Biblioteca SFML esteja incluida da maneira correta.
 
-Abra a pasta gerada após o download do projeto como workspace, acesse a pasta "Piratas_do_CPP" onde se encontra os arquivos .cpp e .hpp e compile o "game.cpp".
+4. Abra a pasta gerada após o download do projeto como workspace, acesse a pasta "Piratas_do_CPP" onde se encontra os arquivos .cpp e .hpp e compile o "game.cpp".
 
 
 utilize o codigo abaixo como exemplo para compilar usando a linha de comando, nao esqueça de indicar o diretório da biblioteca
