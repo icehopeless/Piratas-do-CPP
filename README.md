@@ -1,6 +1,6 @@
 # Piratas do CPP 
 
-![background](./background.jpg)
+![background](./readme_assets/background.jpg)
 Batalha Naval Desenvolvido na linguagem C
 
 ## Indice 
