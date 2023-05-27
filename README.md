@@ -6,10 +6,10 @@ Batalha Naval Desenvolvido na linguagem C
 
 ## Indice 
 - <a href="https://github.com/icehopeless/Piratas-do-CPP/blob/main/README.md#contextualização-do-projeto-">Contextualização do Projeto</a>
-- <a href="#-tecnologias">Principal Tecnologia Destacada</a>
-- <a href="#-">Demonstração</a>
-- <a href="#-">Como Rodar?</a>
-- <a href="#-">Autores</a>
+- <a href="https://github.com/icehopeless/Piratas-do-CPP/blob/main/README.md#principal-tecnologia-destacada-">Principal Tecnologia Destacada</a>
+- <a href="https://github.com/icehopeless/Piratas-do-CPP/blob/main/README.md#demonstração">Demonstração</a>
+- <a href="https://github.com/icehopeless/Piratas-do-CPP/blob/main/README.md#como-rodar-">Como Rodar?</a>
+- <a href="https://github.com/icehopeless/Piratas-do-CPP/blob/main/README.md#autores-">Autores</a>
 
 ## Contextualização do Projeto ⛵
 O presente projeto "Piratas do CPP" consiste num jogo simplificado de batalha naval, onde é criado uma grade/matriz de tamanho 10x10 que é denominado como o cenário do jogo. 
