@@ -5,7 +5,7 @@
 Batalha Naval Desenvolvido na linguagem C
 
 ## Indice 
-- <a href="#-">Contextualização do Projeto</a>
+- <a href="https://github.com/icehopeless/Piratas-do-CPP/blob/main/](https://github.com/icehopeless/Piratas-do-CPP/blob/main/README.md#contextualiza-do-projeto-">Contextualização do Projeto</a>
 - <a href="#-tecnologias">Principal Tecnologia Destacada</a>
 - <a href="#-">Demonstração</a>
 - <a href="#-">Como Rodar?</a>
