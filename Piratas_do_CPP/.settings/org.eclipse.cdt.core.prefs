@@ -1,9 +1,0 @@
-eclipse.preferences.version=1
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/MINGW_HOME/delimiter=;
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/MINGW_HOME/operation=replace
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/MINGW_HOME/value=C\:\\Program Files (x86)\\Dev-Cpp\\MinGW32;F\:\\Batlha\\mingw64\\bin;C\:\\mingw64\\bin;..\\mingw64\\bin
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/PATH/delimiter=;
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/PATH/operation=replace
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/PATH/value=${MINGW_HOME}\\bin;${MSYS_HOME}\\bin;${MSYS_HOME}\\usr\\bin;C\:/Users/Gilberto/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.6.v20230204-1729/jre/bin/server;C\:/Users/Gilberto/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.6.v20230204-1729/jre/bin;C\:\\Windows\\system32;C\:\\Windows;C\:\\Windows\\System32\\Wbem;C\:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C\:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C\:\\WINDOWS\\System32\\OpenSSH\\;C\:\\Program Files (x86)\\dotnet\\;C\:\\Program Files\\dotnet\\;C\:\\ProgramData\\UNIVALI\\Portugol Studio;C\:\\Users\\Gilberto\\AppData\\Local\\Microsoft\\WindowsApps;C\:\\Users\\Gilberto\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C\:\\mingw64\\bin;F\:\\Batlha\\mingw64\\bin;C\:\\mingw64\\bin;..\\mingw64\\bin
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/append=true
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.984782650/appendContributed=true

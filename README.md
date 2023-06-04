@@ -51,10 +51,14 @@ Diante do exposto, foi ultilizado a biblioteca SFML para a construção do jogo,
 
 4. Abra a pasta gerada após o download do projeto na sua IDE, acesse a pasta "Piratas_do_CPP" onde se encontra os arquivos .cpp e .hpp e compile o "game.cpp".
 
-Segue o codigo abaixo como exemplo para compilar usando a linha de comando, nao esqueça de indicar o diretório da biblioteca
+Segue abaixo como exemplo para compilar em outra IDE, tendo que compilar manualmente cada parte do código:
 
+ - Inclua os arquivos .cpp no "main.cpp"
+ - Linke a pasta do compilador e da SFML no arquivo "Makefile" disponibilizado no condigo fonte 
+ - Após ter linkado todos os diretórios no seu devido local, utilize o codigo abaixo no terminal com o diretório na pasta "/src"
+ 
 ```c++
-g++ -Wall src/main.cpp -I include -o bin/app -L lib/SFML-7.3.0 -lsfml-system -lsfml-window -lsfml-graphics
+mingw32-make
 ```
 
 5. Ao compilar, será gerado um executável com o nome "Piratas_do_CPP.exe" na pasta Debug. Execute o para rodar o jogo.
